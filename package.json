@@ -1,0 +1,15 @@
+{
+  "name": "gd8-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "mocha": "^7.1.2"
+  }
+}
