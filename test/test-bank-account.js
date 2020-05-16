@@ -52,9 +52,10 @@ describe('BankAccount', () => {
             account2.append(10);
 
             //merged history
-            let history = [{BalanceAtCreation: 20}, {BalanceAtCreation: 20}, {BalanceAfterAppend: 30}];
+            let history = [{operation: 'create', amount: 20}, {operation: 'create', amount: 20}, {operation: 'append', amount: 10}];
             account.merge(account2);
             
+            //When 
             assert.deepEqual(history, account.history);
             assert.deepEqual(50, account.current());
         })
@@ -63,7 +64,7 @@ describe('BankAccount', () => {
     describe('#history', () => {
         it('Should return the array of history objects.', () => {
             //value we are expecting
-            let expected = [{BalanceAtCreation: 20}, {BalanceAfterSubstract: 10}, {BalanceAfterAppend: 40}];
+            let expected = [{operation: 'create', amount: 20}, {operation: 'substract', amount: 10}, {operation: 'append', amount: 30}];
 
             //building the history
             let balance = 20;

@@ -1,7 +1,7 @@
 class BankAccount {
     constructor(balance){
         this.balance = balance;
-        this.accountHistory = [{BalanceAtCreation: balance}];
+        this.accountHistory = [{operation: 'create', amount: balance}];
     }
 
     current(){
@@ -11,7 +11,7 @@ class BankAccount {
     append(amount){
         if(amount >= 0){
             this.balance = this.balance + amount;
-            this.accountHistory.push({BalanceAfterAppend: this.balance});
+            this.accountHistory.push({operation: 'append', amount: amount});
         }
         return this.balance;
     }
@@ -19,7 +19,7 @@ class BankAccount {
     substract(amount){
         if(amount >= 0){
             this.balance = this.balance - amount;
-            this.accountHistory.push({BalanceAfterSubstract: this.balance});
+            this.accountHistory.push({operation: 'substract', amount: amount});
         }
         return this.balance;
     }
